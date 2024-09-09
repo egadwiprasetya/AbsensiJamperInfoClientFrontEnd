@@ -143,9 +143,10 @@ const FormInputKehadiran = ({ update }) => {
                   <Form.Select aria-label="Default select example" required onChange={getKelompok} id="desaPeserta" value={desaKehadiran}>
                     <option value="" selected disabled></option>
                     {
-                      desa.map(opt => (
-                        <option value={opt.id}>{opt.desa}</option>
-                      ))
+                      desa.map((item, i)=>{
+                        if(item.desa==="daerah")return "";
+                        else return <option value={item.id}>{item.desa}</option>
+                      })
                     }
                   </Form.Select>
                   <Form.Control.Feedback type="invalid">
@@ -182,8 +183,7 @@ const FormInputKehadiran = ({ update }) => {
                 </Form.Group>
 
                 <div className="col-xl-12 col-md-12 mb-3 mt-3">
-                  <button type="submit" id="btnSubmit" className="btn btn-primary">Submit</button>
-                  <button type="reset" id="btnReset" className="btn btn-warning">Reset</button>
+                  <button type="submit" id="btnSubmit" className="btn btn-primary"><i class='bx bx-save'></i> Submit</button>
                 </div>
                 {/* <p>{logs}</p> */}
               </div>
